@@ -1,6 +1,6 @@
 # TravelLog
 
-A simple program written in Python 3.x that lets you log your driving to and from your work places in a spreadsheet.
+A simple program written in Python 3.x, using tkinter for GUI, that lets you log your driving to and from your work places in a spreadsheet.
 
 ## Getting started
 
