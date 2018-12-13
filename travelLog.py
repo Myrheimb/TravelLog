@@ -178,25 +178,25 @@ def writeToExcel():
 	if travelDist == distHomeWork5 + distHomeWork5:
 		workPlace = wpWork5
 	if travelDist == distHomeWork1 + distWork1Work2 + distHomeWork2:
-		workPlace = wpWork1 + ' og ' + wpWork2
+		workPlace = wpWork1 + ' & ' + wpWork2
 	if travelDist == distHomeWork1 + distWork1Work3 + distHomeWork3:
-		workPlace = wpWork1 + ' og ' + wpWork3
+		workPlace = wpWork1 + ' & ' + wpWork3
 	if travelDist == distHomeWork1 + distWork1Work4 + distHomeWork4:
-		workPlace = wpWork1 + ' og ' + wpWork4
+		workPlace = wpWork1 + ' & ' + wpWork4
 	if travelDist == distHomeWork1 + distWork1Work5 + distHomeWork5:
-		workPlace = wpWork1 + ' og ' + wpWork5
+		workPlace = wpWork1 + ' & ' + wpWork5
 	if travelDist == distHomeWork2 + distWork2Work3 + distHomeWork3:
-		workPlace = wpWork2 + ' og ' + wpWork3
+		workPlace = wpWork2 + ' & ' + wpWork3
 	if travelDist == distHomeWork2 + distWork2Work4 + distHomeWork4:
-		workPlace = wpWork2 + ' og ' + wpWork4
+		workPlace = wpWork2 + ' & ' + wpWork4
 	if travelDist == distHomeWork2 + distWork2Work5 + distHomeWork5:
-		workPlace = wpWork2 + ' og ' + wpWork5
+		workPlace = wpWork2 + ' & ' + wpWork5
 	if travelDist == distHomeWork3 + distWork3Work4 + distHomeWork4:
-		workPlace = wpWork3 + ' og ' + wpWork4
+		workPlace = wpWork3 + ' & ' + wpWork4
 	if travelDist == distHomeWork3 + distWork3Work5 + distHomeWork5:
-		workPlace = wpWork3 + ' og ' + wpWork5
+		workPlace = wpWork3 + ' & ' + wpWork5
 	if travelDist == distHomeWork4 + distWork4Work5 + distHomeWork5:
-		workPlace = wpWork4 + ' og ' + wpWork5
+		workPlace = wpWork4 + ' & ' + wpWork5
 	else:
 		pass
 
