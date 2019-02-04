@@ -21,7 +21,6 @@ To use this program all you have to do is click on the locations you've visited 
 
 ![GUI](https://github.com/Myrheimb/TravelLog/blob/master/Images/GUI.png)
 
-If you've added a comment, make sure to click "Submit comment" before saving to Excel.
 When you click save your travel route will be saved to the Excel file specified with the following headers and information.
 A new sheet will be made for every new month automatically.
 
