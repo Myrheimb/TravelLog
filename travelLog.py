@@ -4,7 +4,7 @@ from openpyxl import workbook
 from openpyxl.styles import Font
 from time import strftime
 from tkinter import *
-from travelData import *
+from config import config
 
 #Creates variables containing the current date, current weekday and current month.
 date = strftime('%d.%m.%Y')
@@ -13,7 +13,7 @@ month = strftime ('%B')
 
 #Loads in the Excel workbook and selects this month's sheet.
 #If this month's sheet doesn't exist, it will create it and write in the headers of each column.
-wb = openpyxl.load_workbook(excelWorkBook)
+wb = openpyxl.load_workbook(config['excelWorkBook'])
 if month in wb.sheetnames:
 	ws = wb[month]
 else:
@@ -53,9 +53,9 @@ def homeButton():
     global travelRoute
     travelSteps = travelSteps + [0]
     if travelRoute == '':
-        travelRoute = travelRoute + Home
+        travelRoute = travelRoute + config['Home']
     else:
-        travelRoute = travelRoute + ' - ' + Home
+        travelRoute = travelRoute + ' - ' + config['Home']
 
 #This button is for adding the work1 address to the variable travelRoute.
 def work1Button():
@@ -63,9 +63,9 @@ def work1Button():
     global travelRoute
     travelSteps = travelSteps + [1]
     if travelRoute == '':
-        travelRoute = travelRoute + Work1
+        travelRoute = travelRoute + config['Work1']
     else:
-        travelRoute = travelRoute + ' - ' + Work1
+        travelRoute = travelRoute + ' - ' + config['Work1']
 
 #This button is for adding the work2 address to the variable travelRoute.
 def work2Button():
@@ -73,9 +73,9 @@ def work2Button():
     global travelRoute
     travelSteps = travelSteps + [2]
     if travelRoute == '':
-        travelRoute = travelRoute + Work2
+        travelRoute = travelRoute + config['Work2']
     else:
-        travelRoute = travelRoute + ' - ' + Work2
+        travelRoute = travelRoute + ' - ' + config['Work2']
 
 #This button is for adding the work3 address to the variable travelRoute.
 def work3Button():
@@ -83,9 +83,9 @@ def work3Button():
     global travelRoute
     travelSteps = travelSteps + [3]
     if travelRoute == '':
-        travelRoute = travelRoute + Work3
+        travelRoute = travelRoute + config['Work3']
     else:
-        travelRoute = travelRoute + ' - ' + Work3
+        travelRoute = travelRoute + ' - ' + config['Work3']
 
 #This button is for adding the work4 address to the variable travelRoute.
 def work4Button():
@@ -93,9 +93,9 @@ def work4Button():
     global travelRoute
     travelSteps = travelSteps + [4]
     if travelRoute == '':
-        travelRoute = travelRoute + Work4
+        travelRoute = travelRoute + config['Work4']
     else:
-        travelRoute = travelRoute + ' - ' + Work4
+        travelRoute = travelRoute + ' - ' + config['Work4']
 
 #This button is for adding the work5 address to the variable travelRoute.
 def work5Button():
@@ -103,9 +103,9 @@ def work5Button():
     global travelRoute
     travelSteps = travelSteps + [5]
     if travelRoute == '':
-        travelRoute = travelRoute + Work5
+        travelRoute = travelRoute + config['Work5']
     else:
-        travelRoute = travelRoute + ' - ' + Work5
+        travelRoute = travelRoute + ' - ' + config['Work5']
 
 #This button is for storing the text written into the text box into the variable textInput.
 def retrieveInput():
@@ -134,69 +134,69 @@ def writeToExcel():
 
 	#These statements determine the total travel distance by looking at which locations you've visited.
 	if travelSteps == [0, 0, 1]:
-		travelDist = distHomeWork1 + distHomeWork1
+		travelDist = config['distHomeWork1'] + config['distHomeWork1']
 	if travelSteps == [0, 0, 2]:
-		travelDist = distHomeWork2 + distHomeWork2
+		travelDist = config['distHomeWork2'] + config['distHomeWork2']
 	if travelSteps == [0, 0, 3]:
-		travelDist = distHomeWork3 + distHomeWork3
+		travelDist = config['distHomeWork3'] + config['distHomeWork3']
 	if travelSteps == [0, 0, 4]:
-		travelDist = distHomeWork4 + distHomeWork4
+		travelDist = config['distHomeWork4'] + config['distHomeWork4']
 	if travelSteps == [0, 0, 5]:
-		travelDist = distHomeWork5 + distHomeWork5
+		travelDist = config['distHomeWork5'] + config['distHomeWork5']
 	if travelSteps == [0, 0, 1, 2]:
-		travelDist = distHomeWork1 + distWork1Work2 + distHomeWork2
+		travelDist = config['distHomeWork1'] + config['distWork1Work2'] + config['distHomeWork2']
 	if travelSteps == [0, 0, 1, 3]:
-		travelDist = distHomeWork1 + distWork1Work3 + distHomeWork3
+		travelDist = config['distHomeWork1'] + config['distWork1Work3'] + config['distHomeWork3']
 	if travelSteps == [0, 0, 1, 4]:
-		travelDist = distHomeWork1 + distWork1Work4 + distHomeWork4
+		travelDist = config['distHomeWork1'] + config['distWork1Work4'] + config['distHomeWork4']
 	if travelSteps == [0, 0, 1, 5]:
-		travelDist = distHomeWork1 + distWork1Work5 + distHomeWork5
+		travelDist = config['distHomeWork1'] + config['distWork1Work5'] + config['distHomeWork5']
 	if travelSteps == [0, 0, 2, 3]:
-		travelDist = distHomeWork2 + distWork2Work3 + distHomeWork3
+		travelDist = config['distHomeWork2'] + config['distWork2Work3'] + config['distHomeWork3']
 	if travelSteps == [0, 0, 2, 4]:
-		travelDist = distHomeWork2 + distWork2Work4 + distHomeWork4
+		travelDist = config['distHomeWork2'] + config['distWork2Work4'] + config['distHomeWork4']
 	if travelSteps == [0, 0, 2, 5]:
-		travelDist = distHomeWork2 + distWork2Work5 + distHomeWork5
+		travelDist = config['distHomeWork2'] + config['distWork2Work5'] + config['distHomeWork5']
 	if travelSteps == [0, 0, 3, 4]:
-		travelDist = distHomeWork3 + distWork3Work4 + distHomeWork4
+		travelDist = config['distHomeWork3'] + config['distWork3Work4'] + config['distHomeWork4']
 	if travelSteps == [0, 0, 3, 5]:
-		travelDist = distHomeWork3 + distWork3Work5 + distHomeWork5
+		travelDist = config['distHomeWork3'] + config['distWork3Work5'] + config['distHomeWork5']
 	if travelSteps == [0, 0, 4, 5]:
-		travelDist = distHomeWork4 + distWork4Work5 + distHomeWork5
+		travelDist = config['distHomeWork4'] + config['distWork4Work5'] + config['distHomeWork5']
 	else:
 		pass
 
 	#These statements determines which workplace you worked at by calculating the total distance traveled.
-	if travelDist == distHomeWork1 + distHomeWork1:
-		workPlace = wpWork1
-	if travelDist == distHomeWork2 + distHomeWork2:
-		workPlace = wpWork2
-	if travelDist == distHomeWork3 + distHomeWork3:
-		workPlace = wpWork3
-	if travelDist == distHomeWork4 + distHomeWork4:
-		workPlace = wpWork4
-	if travelDist == distHomeWork5 + distHomeWork5:
-		workPlace = wpWork5
-	if travelDist == distHomeWork1 + distWork1Work2 + distHomeWork2:
-		workPlace = wpWork1 + ' & ' + wpWork2
-	if travelDist == distHomeWork1 + distWork1Work3 + distHomeWork3:
-		workPlace = wpWork1 + ' & ' + wpWork3
-	if travelDist == distHomeWork1 + distWork1Work4 + distHomeWork4:
-		workPlace = wpWork1 + ' & ' + wpWork4
-	if travelDist == distHomeWork1 + distWork1Work5 + distHomeWork5:
-		workPlace = wpWork1 + ' & ' + wpWork5
-	if travelDist == distHomeWork2 + distWork2Work3 + distHomeWork3:
-		workPlace = wpWork2 + ' & ' + wpWork3
-	if travelDist == distHomeWork2 + distWork2Work4 + distHomeWork4:
-		workPlace = wpWork2 + ' & ' + wpWork4
-	if travelDist == distHomeWork2 + distWork2Work5 + distHomeWork5:
-		workPlace = wpWork2 + ' & ' + wpWork5
-	if travelDist == distHomeWork3 + distWork3Work4 + distHomeWork4:
-		workPlace = wpWork3 + ' & ' + wpWork4
-	if travelDist == distHomeWork3 + distWork3Work5 + distHomeWork5:
-		workPlace = wpWork3 + ' & ' + wpWork5
-	if travelDist == distHomeWork4 + distWork4Work5 + distHomeWork5:
-		workPlace = wpWork4 + ' & ' + wpWork5
+	if travelDist == config['distHomeWork1'] + config['distHomeWork1']:
+		workPlace = config['wpWork1']
+	if travelDist == config['distHomeWork2'] + config['distHomeWork2']:
+		workPlace = config['wpWork2']
+	if travelDist == config['distHomeWork3'] + config['distHomeWork3']:
+		workPlace = config['wpWork3']
+	if travelDist == config['distHomeWork4'] + config['distHomeWork4']:
+		workPlace = config['wpWork4']
+	if travelDist == config['distHomeWork5'] + config['distHomeWork5']:
+		workPlace = config['wpWork5']
+	if travelDist == config['distHomeWork1'] + config['distWork1Work2'] + config['distHomeWork2']:
+		workPlace = config['wpWork1'] + ' & ' + config['wpWork2']
+	if travelDist == config['distHomeWork1'] + config['distWork1Work3'] + config['distHomeWork3']:
+		workPlace = config['wpWork1'] + ' & ' + config['wpWork3']
+	if travelDist == config['distHomeWork1'] + config['distWork1Work4'] + config['distHomeWork4']:
+		workPlace = config['wpWork1'] + ' & ' + config['wpWork4']
+	if travelDist == config['distHomeWork1'] + config['distWork1Work5'] + config['distHomeWork5']:
+		workPlace = config['wpWork1'] + ' & ' + config['wpWork5']
+	if travelDist == config['distHomeWork2'] + config['distWork2Work3'] + config['distHomeWork3']:
+		workPlace = config['wpWork2'] + ' & ' + config['wpWork3']
+	if travelDist == config['distHomeWork2'] + config['distWork2Work4'] + config['distHomeWork4']:
+		workPlace = config['wpWork2'] + ' & ' + config['wpWork4']
+	if travelDist == config['distHomeWork2'] + config['distWork2Work5'] + config['distHomeWork5']:
+		workPlace = config['wpWork2'] + ' & ' + config['wpWork5']
+	if travelDist == config['distHomeWork3'] + config['distWork3Work4'] + config['distHomeWork4']:
+		workPlace = config['wpWork3'] + ' & ' + config['wpWork4']
+	if travelDist == config['distHomeWork3'] + config['distWork3Work5'] + config['distHomeWork5']:
+		workPlace = config['wpWork3'] + ' & ' + config['wpWork5']
+	if travelDist == config['distHomeWork4'] + config['distWork4Work5'] + config['distHomeWork5']:
+		workPlace = config['wpWork4'] + ' & ' + config['wpWork5']
 	else:
 		pass
 
@@ -211,7 +211,7 @@ def writeToExcel():
 	workPlace = ''
 
 	#Writes all the data to the Excel workbook.
-	wb.save(excelWorkBook)
+	wb.save(config['excelWorkBook'])
 
 #This function does the same as the above, but also closes the app window.
 def writeToExcelClose():
@@ -222,25 +222,25 @@ def writeToExcelClose():
 #Change the text on the buttons b1, b2, b3, b4, b5 and b6 to your own values here.
 b1 = Button(root, text='Home', command=homeButton, width=13)
 b1.grid(row=0, column=0)
-b2 = Button(root, text=wpWork1, command=work1Button, width=13)
+b2 = Button(root, text=config['wpWork1'], command=work1Button, width=13)
 b2.grid(row=0, column=1)
-b3 = Button(root, text=wpWork2, command=work2Button, width=13)
+b3 = Button(root, text=config['wpWork2'], command=work2Button, width=13)
 b3.grid(row=0, column=2)
-b4 = Button(root, text=wpWork3, command=work3Button, width=13)
+b4 = Button(root, text=config['wpWork3'], command=work3Button, width=13)
 b4.grid(row=1, column=0)
-b5 = Button(root, text=wpWork4, command=work4Button, width=13)
+b5 = Button(root, text=config['wpWork4'], command=work4Button, width=13)
 b5.grid(row=1, column=1)
-b6 = Button(root, text=wpWork5, command=work5Button, width=13)
+b6 = Button(root, text=config['wpWork5'], command=work5Button, width=13)
 b6.grid(row=1, column=2)
 commentLabel = Label(root, text='Comment here:')
 commentLabel.grid(row=2, column=0, pady=5)
 textInputButton = Entry(root, bd=1)
 textInputButton.grid(row=2, column=1, pady=5)
-b7 = Button(root, text='Submit comment', command=retrieveInput, width=13)
+b7 = Button(root, text=config['retrieveInput'], command=retrieveInput, width=13)
 b7.grid(row=2, column=2, pady=5)
-b8 = Button(root, text='Save and new', command=writeToExcel, width=13)
+b8 = Button(root, text=config['writeToExcel'], command=writeToExcel, width=13)
 b8.grid(row=3, column=0, columnspan=2)
-b9 = Button(root, text='Save and close', command=writeToExcelClose, width=13)
+b9 = Button(root, text=config['writeToExcelClose'], command=writeToExcelClose, width=13)
 b9.grid(row=3, column=1, columnspan=2)
 
 #Give focus to the text input area.
