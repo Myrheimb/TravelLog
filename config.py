@@ -32,7 +32,7 @@ config = {
     'distWork3Work5' : 34,
     'distWork4Work5' : 36.5,
     # Fill in your desired button text.
-    'retrieveInput' : 'Submit comment',
+    'commentLabel' : 'Comment here:',
     'writeToExcel' : 'Save and new',
     'writeToExcelClose' : 'Save and close'
 }
