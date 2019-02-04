@@ -107,18 +107,6 @@ def work5Button():
     else:
         travelRoute = travelRoute + ' - ' + config['Work5']
 
-#This button is for storing the text written into the text box into the variable textInput.
-def retrieveInput():
-    global textInput
-    textInput = textInputButton.get()
-
-#This function makes it so that pressing the enter key triggers the above function.
-def enterPress(event):
-    retrieveInput()
-
-#This binds any press on the enter key to the function above.
-root.bind('<Return>', enterPress)
-
 #This function determines the total travel distance, and which workplace(s) you've worked at.
 #Then it appends it to the next row in this month's sheet in your Excel workbook.
 def writeToExcel():
@@ -129,9 +117,9 @@ def writeToExcel():
 	global textInput
 	global workPlace
 	global ws
-
+	
 	travelSteps.sort()
-
+	
 	#These statements determine the total travel distance by looking at which locations you've visited.
 	if travelSteps == [0, 0, 1]:
 		travelDist = config['distHomeWork1'] + config['distHomeWork1']
@@ -165,7 +153,7 @@ def writeToExcel():
 		travelDist = config['distHomeWork4'] + config['distWork4Work5'] + config['distHomeWork5']
 	else:
 		pass
-
+	
 	#These statements determines which workplace you worked at by calculating the total distance traveled.
 	if travelDist == config['distHomeWork1'] + config['distHomeWork1']:
 		workPlace = config['wpWork1']
@@ -199,20 +187,26 @@ def writeToExcel():
 		workPlace = config['wpWork4'] + ' & ' + config['wpWork5']
 	else:
 		pass
-
+	
+	# Gets the content of the comment field and adds it to the variable textInput.
+	textInput = textInputButton.get()
+	
 	#This appends the collected data into the next row in this month's sheet in your Excel workbook.
 	ws.append([weekday, date, workPlace, travelRoute, travelDist, textInput])
-
+	
 	#Empty all variables before a possible new append.
 	travelRoute = ''
 	totalDist = 0
 	travelSteps = []
 	textInput = ''
 	workPlace = ''
-
+	
 	#Writes all the data to the Excel workbook.
 	wb.save(config['excelWorkBook'])
-
+	
+	# Empties the comment field.
+	textInputButton.delete(0, 'end')
+	
 #This function does the same as the above, but also closes the app window.
 def writeToExcelClose():
 	writeToExcel()
@@ -232,12 +226,10 @@ b5 = Button(root, text=config['wpWork4'], command=work4Button, width=13)
 b5.grid(row=1, column=1)
 b6 = Button(root, text=config['wpWork5'], command=work5Button, width=13)
 b6.grid(row=1, column=2)
-commentLabel = Label(root, text='Comment here:')
+commentLabel = Label(root, text=config['commentLabel'])
 commentLabel.grid(row=2, column=0, pady=5)
 textInputButton = Entry(root, bd=1)
 textInputButton.grid(row=2, column=1, pady=5)
-b7 = Button(root, text=config['retrieveInput'], command=retrieveInput, width=13)
-b7.grid(row=2, column=2, pady=5)
 b8 = Button(root, text=config['writeToExcel'], command=writeToExcel, width=13)
 b8.grid(row=3, column=0, columnspan=2)
 b9 = Button(root, text=config['writeToExcelClose'], command=writeToExcelClose, width=13)
