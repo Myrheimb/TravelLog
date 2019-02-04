@@ -4,8 +4,8 @@ A simple program written in Python 3.x, using tkinter for GUI, that lets you log
 
 ## Getting started
 
-Clone the files to your computer and edit travelData.py with the addresses, locations and distances to fit your most commonly visited locations.
-After you've added your own data to travelData.py, just run travelLog.py to start using it.
+Clone the files to your computer and edit config.py with the addresses, locations, distances and button text to fit your needs.
+After you've added your own data to config.py, just run travelLog.py to start using it.
 
 ### Prerequisites
 
@@ -21,6 +21,7 @@ To use this program all you have to do is click on the locations you've visited 
 
 ![GUI](https://github.com/Myrheimb/TravelLog/blob/master/Images/GUI.png)
 
+If you've added a comment, make sure to click "Submit comment" before saving to Excel.
 When you click save your travel route will be saved to the Excel file specified with the following headers and information.
 A new sheet will be made for every new month automatically.
 
